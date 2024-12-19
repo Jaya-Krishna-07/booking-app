@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import MainLayout from './layouts/MainLayout.tsx'
+import Register from './pages/Register.tsx'
 
 const router = createBrowserRouter([
   {
@@ -10,7 +11,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: "<div></div>"
+        element: "<div>Home page</div>"
+      },
+      {
+        path: "/register",
+        element: <Register />
       },
     ]
   }
