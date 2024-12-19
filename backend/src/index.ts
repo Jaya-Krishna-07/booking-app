@@ -1,8 +1,9 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
 import cors from "cors";
 import 'dotenv/config';
 import mongoose from 'mongoose';
 import userRoutes from './routes/users.ts';
+import authRoutes from './routes/auth.ts';
 
 mongoose.connect(process.env.MONGODB_CONNECTION_STRING as string)
   .then(() => console.log("MongoDB connection established!"))
@@ -13,7 +14,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-app.use("/api/users/", userRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
 
 app.listen(3000, () => {
   console.log("server is running on localhost:3000");
