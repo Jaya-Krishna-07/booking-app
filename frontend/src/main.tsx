@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import MainLayout from './layouts/MainLayout.tsx'
 import Register from './pages/Register.tsx'
 import { QueryClient, QueryClientProvider } from 'react-query'
+import { AppContextProvider } from './contexts/AppContext.tsx'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -33,7 +34,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
+      <AppContextProvider>
+        <RouterProvider router={router} />
+      </AppContextProvider>
     </QueryClientProvider>
   </StrictMode>,
 )
