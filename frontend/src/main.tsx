@@ -6,6 +6,7 @@ import MainLayout from './layouts/MainLayout.tsx'
 import Register from './pages/Register.tsx'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { AppContextProvider } from './contexts/AppContext.tsx'
+import SignIn from './pages/SignIn.tsx'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />
+      },
+      {
+        path: "/sign-in",
+        element: <SignIn />
       },
     ]
   }
