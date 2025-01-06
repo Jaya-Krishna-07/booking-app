@@ -1,12 +1,13 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
 import MainLayout from './layouts/MainLayout.tsx'
 import Register from './pages/Register.tsx'
 import { QueryClient, QueryClientProvider } from 'react-query'
-import { AppContextProvider } from './contexts/AppContext.tsx'
+import { AppContextProvider, useAppContext } from './contexts/AppContext.tsx'
 import SignIn from './pages/SignIn.tsx'
+import AddHotel from './pages/AddHotel.tsx'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -14,7 +15,16 @@ const queryClient = new QueryClient({
       retry: 0
     }
   }
-})
+});
+
+const ProtectedRoute = ({ element }: { element: JSX.Element }) => {
+  const { isLoggedIn } = useAppContext();
+  if (!isLoggedIn) {
+    return <Navigate to="/sign-in" replace />
+  }
+  return element;
+}
+
 
 const router = createBrowserRouter([
   {
@@ -32,6 +42,10 @@ const router = createBrowserRouter([
         path: "/sign-in",
         element: <SignIn />
       },
+      {
+        path: "/add-hotel",
+        element: <ProtectedRoute element={<AddHotel />} />
+      }
     ]
   }
 ]);
