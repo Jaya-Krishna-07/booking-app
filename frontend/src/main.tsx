@@ -8,6 +8,8 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import { AppContextProvider, useAppContext } from './contexts/AppContext.tsx'
 import SignIn from './pages/SignIn.tsx'
 import AddHotel from './pages/AddHotel.tsx'
+import MyHotels from './pages/MyHotels.tsx'
+import EditHotel from './pages/EditHotel.tsx'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -45,6 +47,14 @@ const router = createBrowserRouter([
       {
         path: "/add-hotel",
         element: <ProtectedRoute element={<AddHotel />} />
+      },
+      {
+        path: "/my-hotels",
+        element: <ProtectedRoute element={<MyHotels />} />
+      },
+      {
+        path: "/edit-hotel/:hotelId",
+        element: <ProtectedRoute element={<EditHotel />} />
       }
     ]
   }
