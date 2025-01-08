@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 import userRoutes from './routes/users.ts';
 import authRoutes from './routes/auth.ts';
 import myHotelRoutes from './routes/my-hotels.ts';
+import hotelRoutes from './routes/hotels.ts';
 import cookieParser from 'cookie-parser';
 import { v2 as cloudinary } from 'cloudinary';
 
@@ -30,6 +31,7 @@ app.use(cors({
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/my-hotels", myHotelRoutes);
+app.use("/api/hotels", hotelRoutes);
 
 app.listen(3000, () => {
   console.log("server is running on localhost:3000");

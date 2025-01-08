@@ -10,6 +10,8 @@ import SignIn from './pages/SignIn.tsx'
 import AddHotel from './pages/AddHotel.tsx'
 import MyHotels from './pages/MyHotels.tsx'
 import EditHotel from './pages/EditHotel.tsx'
+import { SearchContextProvider } from './contexts/SearchContext.tsx'
+import Search from './pages/Search.tsx'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -45,6 +47,10 @@ const router = createBrowserRouter([
         element: <SignIn />
       },
       {
+        path: "/search",
+        element: <Search />
+      },
+      {
         path: "/add-hotel",
         element: <ProtectedRoute element={<AddHotel />} />
       },
@@ -64,7 +70,9 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
       <AppContextProvider>
-        <RouterProvider router={router} />
+        <SearchContextProvider>
+          <RouterProvider router={router} />
+        </SearchContextProvider>
       </AppContextProvider>
     </QueryClientProvider>
   </StrictMode>,
