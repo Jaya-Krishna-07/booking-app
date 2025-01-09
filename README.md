@@ -1,4 +1,4 @@
-# Booking App
+# Hotel App
 
 A hotel booking app made with Nodejs, Reactjs, Expressjs, MongoDB, TailwindCSS and cloudinary.
 
