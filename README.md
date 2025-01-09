@@ -25,13 +25,13 @@ Before you begin, make sure to have Node.js installed in your system.
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/Jaya-Krishna-07/booking-app.git```
+git clone https://github.com/Jaya-Krishna-07/booking-app.git
 
 2. install dependencies:
 ```bash
-cd backend && npm install```
+cd backend && npm install
 ```bash
-cd frontend && npm install```
+cd frontend && npm install
 
 note: The backend runs on port 3000 and the frontend runs on port 4000.
 
@@ -43,7 +43,7 @@ note: The backend runs on port 3000 and the frontend runs on port 4000.
 4. start the app
 - To start the backend:
 ```bash
-cd backend && npm run dev```
+cd backend && npm run dev
 - To start the frontend:
 ```bash
-cd frontend && npm run dev```
+cd frontend && npm run dev
