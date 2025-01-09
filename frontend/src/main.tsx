@@ -12,6 +12,7 @@ import MyHotels from './pages/MyHotels.tsx'
 import EditHotel from './pages/EditHotel.tsx'
 import { SearchContextProvider } from './contexts/SearchContext.tsx'
 import Search from './pages/Search.tsx'
+import Detail from './pages/Detail.tsx'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
       {
         path: "/search",
         element: <Search />
+      },
+      {
+        path: "/detail/:hotelId",
+        element: <Detail />
       },
       {
         path: "/add-hotel",
